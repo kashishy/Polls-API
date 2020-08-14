@@ -12,7 +12,7 @@ var config = require('./config');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//var pollsRouter = require('./routes/pollsRouter');
+var pollsRouter = require('./routes/pollsRouter');
 
 const url = config.mongoUrl;
 const connect = mongoose.connect(url,  { useNewUrlParser: true });
@@ -37,6 +37,7 @@ app.use(passport.initialize());
 //these to routes acessed without authorization, so above the auth middleware
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/polls', pollsRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
