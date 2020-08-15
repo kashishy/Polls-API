@@ -9,7 +9,7 @@ router.use(bodyParser.json());
 
 console.log("Users Ruter");
 /* GET users listing. */
-router.get('/', authenticate.verifyUser, authenticate.verifyAdmin, (req,res,next) => {
+router.get('/', authenticate.verifyUser, (req,res,next) => {
   User.find({})
   .then((users) => {
       res.statusCode = 200;
